@@ -1,7 +1,7 @@
 // main client code
 
 Session.set('fps', 0);
-Session.set('a', new soldier(10, 10));
+Session.set('a', new EpObjects.Soldier(10, 10));
 var e = document.documentElement,
     g = document.getElementsByTagName('body')[0],
     x = window.innerWidth || e.clientWidth || g.clientWidth,
@@ -22,7 +22,7 @@ Template.body.events({
     console.log(e);
     console.log(e.clientX);
     console.log(e.clientY);
-    Session.set('a', new soldier(e.clientX, e.clientY));
+    Session.set('a', new EpObjects.Soldier(e.clientX, e.clientY));
   }
 });
 
