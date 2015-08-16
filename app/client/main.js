@@ -1,7 +1,23 @@
 // main client code
 
+
+// window.performance = window.performance || {};
+// performance.now = (function() {
+//   return performance.now       ||
+//          performance.mozNow    ||
+//          performance.msNow     ||
+//          performance.oNow      ||
+//          performance.webkitNow ||
+//          function() { return new Date().getTime(); };
+// })();
+
+
+var map = [];
+var GST;
+map.push(new EpObjects.Soldier(new EpObjects.Position(100,100)));
+
 Session.set('fps', 0);
-Session.set('a', new EpObjects.Soldier(10, 10));
+
 var e = document.documentElement,
     g = document.getElementsByTagName('body')[0],
     x = window.innerWidth || e.clientWidth || g.clientWidth,
@@ -17,12 +33,15 @@ Template.fps.helpers({
 });
 
 Template.body.events({
-  'contextmenu canvas': function(e){
-    e.preventDefault();
-    console.log(e);
-    console.log(e.clientX);
-    console.log(e.clientY);
-    Session.set('a', new EpObjects.Soldier(e.clientX, e.clientY));
+  // 'contextmenu canvas': function(e){
+  //   e.preventDefault();
+  //   console.log(e);
+  //   console.log(e.clientX);
+  //   console.log(e.clientY);
+  //   map[0].position = new EpObjects.Position(e.clientX, e.clientY);
+  // },
+  'click button': function(e){
+    startGame();
   }
 });
 
@@ -34,8 +53,7 @@ var draw = function(ctx, draw_content){
     fps += 1;
     t2 = new Date();
     if(t2-t1 >= 1000){
-      var a = Session.get('a');
-      Session.set('fps', fps + ' ' + a.x + ' ' + a.y);
+      Session.set('fps', fps);
       fps = 0;
       t1 = t2;
     }
@@ -45,17 +63,22 @@ var draw = function(ctx, draw_content){
 };
 
 
+var startGame = function(){
+  GST = new Date();
+  var canvas = document.getElementsByTagName('canvas')[0];
+  var ctx = canvas.getContext('2d');
+  draw(ctx, function(){
+    for(i in map){
+      map[i].render(ctx);
+    }
+  });
+}
+
+
 window.onload = function(){
   var canvas = document.getElementsByTagName('canvas')[0];
   canvas.width  = Session.get('screenX');
   canvas.height = Session.get('screenY');
-  var ctx = canvas.getContext('2d');
-  draw(ctx, function(ctx){
-    ctx.beginPath();
-    var a = Session.get('a');
-    ctx.arc(a.x,a.y,5,0,Math.PI*2,true);
-    ctx.fill();
-  });
 };
 
 

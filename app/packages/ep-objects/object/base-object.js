@@ -1,5 +1,9 @@
 // Base Object
 
-BaseObject = function(){
-  // TODO base object
+BaseObject = function(timeTag){
+  this.timeTag = timeTag;
 };
+
+// BaseObject.prototype.render = function(ctx){
+//   ;
+// }

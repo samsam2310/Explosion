@@ -2,7 +2,10 @@
 
 
 EpObjects = {
+  EpValue    : EpValue,
+  EpFunction : EpFunction,
+  Position   : Position,
   BaseObject : BaseObject,
-  Unit       : Unit,
+  BaseUnit   : BaseUnit,
   Soldier    : Soldier
 };

@@ -12,8 +12,9 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
+  api.addFiles('object/ep-math.js');
   api.addFiles('object/base-object.js');
-  api.addFiles('object/unit.js');
+  api.addFiles('object/base-unit.js');
   api.addFiles('object/soldier.js');
   api.addFiles('ep-objects.js');
   api.export('EpObjects');
