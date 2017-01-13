@@ -68,7 +68,9 @@ var startGame = function(){
   var canvas = document.getElementsByTagName('canvas')[0];
   var ctx = canvas.getContext('2d');
   draw(ctx, function(){
+    var passTime = new Date() - GST;
     for(i in map){
+      map[i].update(passTime);
       map[i].render(ctx);
     }
   });

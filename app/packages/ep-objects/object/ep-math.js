@@ -28,11 +28,16 @@ Position = function(x, y){
 
 
 Status = function(ob){
+  this.timeTag = ob.timeTag;
+
+  this.position = ob.position;
+  this.path = ob.path;
+  this.speed = ob.speed;
+
   this.hp = ob.hp;
   this.maxHp = ob.maxHp;
   this.atk = ob.atk;
   this.def = ob.def;
   // this.mp = ob.mp;
   // this.maxMp = ob.mp;
-  this.speed = ob.speed;
 }
