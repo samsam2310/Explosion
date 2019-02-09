@@ -1,0 +1,10 @@
+.main {
+  /* Reference an image file */
+  /*background: url('./images/background.png');*/
+  color: red;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}

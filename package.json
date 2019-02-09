@@ -1,0 +1,24 @@
+{
+  "name": "explosion",
+  "version": "1.0.0",
+  "description": "Game",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel src/index.html",
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsam2310/Explosion.git"
+  },
+  "author": "samsam2310",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/samsam2310/Explosion/issues"
+  },
+  "homepage": "https://github.com/samsam2310/Explosion#readme",
+  "dependencies": {
+    "pixi.js": "^4.8.5"
+  }
+}
